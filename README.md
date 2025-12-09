@@ -29,7 +29,7 @@ This application demonstrates a production-ready RAG system designed for the con
 ### Prerequisites
 
 - Node.js 18+ and npm
-- (Optional) Gemini API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
+- (Optional) Gemini API key from Google AI Studio for real AI responses
 
 ### Installation
 
@@ -41,7 +41,7 @@ npm install
 cp .env.example .env
 
 # (Optional) Add your Gemini API key to .env
-# Note: The app works with mock AI responses by default
+# Note: The app works with mock AI responses by default, see examples below.
 ```
 
 ### Running the App
@@ -58,26 +58,30 @@ The application will automatically use intelligent mock AI responses if no API k
 ## 🎨 Features
 
 ### 1. RAG-Based Product Search
+
 - Keyword-based retrieval from construction product database
 - Context-aware responses using relevant document chunks
 - Streaming responses for better UX
 
 ### 2. Mock Data System
+
 - **6 realistic EPD documents** covering:
-  - Insulation (Rockwool, Kingspan)
-  - Concrete (Holcim ECOPact, CemEx Vertua)
-  - Timber (Stora Enso CLT)
-  - Cladding (Kebony)
+    - Insulation (Rockwool, Kingspan)
+    - Concrete (Holcim ECOPact, CemEx Vertua)
+    - Timber (Stora Enso CLT)
+    - Cladding (Kebony)
 - **15 document chunks** with technical specifications
 - Realistic embodied carbon data and certifications
 
 ### 3. AI Response System
+
 - **Primary:** Gemini 2.0 Flash API for production use
 - **Fallback:** Intelligent mock responses for demos
 - Automatic fallback on API quota/errors
 - HTML-formatted tables for data comparison
 
 ### 4. Professional UI
+
 - Clean, modern interface inspired by professional tools
 - Responsive design (mobile & desktop)
 - Real-time streaming message display
@@ -127,14 +131,15 @@ Try these example queries to see the system in action:
 
 1. Get API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
 2. Add to `.env`:
-   ```
-   GEMINI_API_KEY=your_api_key_here
-   ```
+    ```
+    GEMINI_API_KEY=your_api_key_here
+    ```
 3. Remove `USE_MOCK_AI` flag if present
 
 ### Using Mock AI (Default)
 
 The application automatically uses mock responses when:
+
 - No `GEMINI_API_KEY` is set
 - API quota is exceeded
 - Network errors occur
@@ -165,29 +170,6 @@ construction-product-chatbot/
 └── README.md
 ```
 
-## 🎓 For BIM AI Engineer Role
-
-This project demonstrates:
-
-### AI/ML Skills
-- ✅ RAG system architecture
-- ✅ Prompt engineering for construction domain
-- ✅ Streaming LLM responses
-- ✅ Context management and retrieval
-
-### BIM/Construction Knowledge
-- ✅ Understanding of EPDs and embodied carbon
-- ✅ Familiarity with sustainability certifications (BREEAM, LEED, Passive House)
-- ✅ Material properties and technical specifications
-- ✅ Construction industry data formats
-
-### Software Engineering
-- ✅ Modern React application architecture
-- ✅ RESTful API design
-- ✅ Error handling and fallback systems
-- ✅ Clean, maintainable code structure
-- ✅ Production-ready patterns
-
 ## 🚦 Future Enhancements
 
 - Vector embeddings for semantic search
@@ -204,9 +186,10 @@ This project is a demonstration for job application purposes.
 ## 👤 Author
 
 **Daniele Tatasciore**
-- Applying for: AI Engineer @ BIM
-- LinkedIn: [Your Profile]
-- Portfolio: [Your Website]
+
+- [LinkedIn](https://www.linkedin.com/in/danieletatasciore/)
+- [Portfolio](https://work.daniele.is)
+- [GitHub](https://github.com/tadan)
 
 ---
 
