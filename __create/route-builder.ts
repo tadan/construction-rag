@@ -65,6 +65,48 @@ function getHonoPath(routeFile: string): { name: string; pattern: string }[] {
 
 // Import and register all routes
 async function registerRoutes() {
+  if (import.meta.env.PROD) {
+    // In production, directly import and register routes
+    const routes = [
+      { path: '/chat', module: await import('../src/app/api/chat/route.js') },
+      { path: '/documents', module: await import('../src/app/api/documents/route.js') },
+      { path: '/messages', module: await import('../src/app/api/messages/route.js') },
+      { path: '/conversation/clear', module: await import('../src/app/api/conversation/clear/route.js') },
+    ];
+
+    for (const { path, module: route } of routes) {
+      const methods = ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'];
+      for (const method of methods) {
+        if (route[method]) {
+          const handler: Handler = async (c) => {
+            const params = c.req.param();
+            return await route[method](c.req.raw, { params });
+          };
+          const methodLowercase = method.toLowerCase();
+          switch (methodLowercase) {
+            case 'get':
+              api.get(path, handler);
+              break;
+            case 'post':
+              api.post(path, handler);
+              break;
+            case 'put':
+              api.put(path, handler);
+              break;
+            case 'delete':
+              api.delete(path, handler);
+              break;
+            case 'patch':
+              api.patch(path, handler);
+              break;
+          }
+        }
+      }
+    }
+    return;
+  }
+
+  // Development: scan filesystem for routes
   const routeFiles = (
     await findRouteFiles(__dirname).catch((error) => {
       console.error('Error finding route files:', error);
